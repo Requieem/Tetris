@@ -2,9 +2,12 @@ using System;
 using UnityEngine;
 
 [Serializable]
-public struct PivotedTetromino : ITetromino
+public struct Tetromino : ITetromino
 {
     [SerializeField] private TetrominoData m_data;
+    [SerializeField] private Color m_color;
+
+    public Color Color { get => m_color; set => m_color = value; }
     public TetrominoData Data { get => m_data; set => m_data = value; }
     private Vector2Int[] WallticksTests
     {
@@ -27,14 +30,15 @@ public struct PivotedTetromino : ITetromino
     }
     public ITetromino Move(Vector2Int direction)
     {
-        return new PivotedTetromino(MoveBehaviour.Instance.Move(Data, direction));
+        return new Tetromino(MoveBehaviour.Instance.Move(Data, direction), m_color);
     }
     public ITetromino Rotate(bool clockwise)
     {
-        return new PivotedTetromino(PivotedRotationBehaviour.Instance.Rotate(Data, clockwise));
+        return new Tetromino(StandardRotationBehaviour.Instance.Rotate(Data, clockwise), m_color);
     }
-    public PivotedTetromino(TetrominoData data)
+    public Tetromino(TetrominoData data, Color color)
     {
         m_data = data;
+        m_color = color;
     }
 }
