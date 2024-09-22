@@ -104,7 +104,7 @@ I obviously do not own the rights for the above image, but let's face the fact t
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Just clone the repo if you want to inspect, modify or build the whole project. You can also just grab the executable inside the Build folder if you just want to play some snake!
+Just clone the repo if you want to inspect, modify or build the whole project. You can also just grab the executable inside the Build folder if you just want to play some tetris!
 
 ### Prerequisites
 
